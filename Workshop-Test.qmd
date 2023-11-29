@@ -1,0 +1,184 @@
+---
+title: Importing Libraries
+jupyter: python3
+---
+
+```{python}
+#| tags: []
+from IPython.display import display 
+import ipywidgets as widgets 
+from ipywidgets import interact, Layout 
+```
+
+```{python}
+#| tags: []
+from ipywidgets import IntSlider 
+IntSlider(value=7,min=0,max=10,step=1,
+          description='IntSlider:',orientation='horizontal')
+```
+
+```{python}
+#| tags: []
+from ipywidgets import Text, IntSlider, Dropdown
+# Erstelle ein neues Text-Eingabefeld tb1 und zeige es an.
+tb1 = Text(value='Text eingeben', 
+                   description='Text-Widget: ')
+display(tb1)
+# Erstelle IntSlider-Widget is1 und zeige es an.
+is1 = IntSlider(value=7, min=0, max=10, 
+                        step=1, description='IntSlider: ')
+display(is1)
+# Erstelle Dropdown-Widget dd1 und zeige es an
+dd1 = Dropdown(options=['1', '2', '3'], 
+                       value='2', description='Dropdown: ')
+display(dd1)
+```
+
+```{python}
+#| tags: []
+import ipywidgets
+from ipywidgets import Text, Button
+# Erstelle zwei Text-Eingabefelder
+textbox1 = Text(description='a'); display(textbox1)
+textbox2 = Text(description='b');display(textbox2)
+# ... einen Button
+button = Button(description='Calc!', 
+                        layout=Layout(width='200px'))
+button.style.button_color = 'red'
+display(button)
+# ... und ein Text-Ausgabefeld für die Summe
+textbox3 = Text(description='Summe')
+display(textbox3)
+# Definiere Eventhandler für den Button
+def on_button_clicked(sender):
+    a = int(textbox1.value)
+    b = int(textbox2.value)
+    textbox3.value = str(a+b)
+# ... und weise ihn dem on_click-Ereignis zu
+button.on_click(on_button_clicked)
+```
+
+```{python}
+#| tags: []
+ # myfunc1 gibt einen Text aus, der von x abhängt 
+ def myfunc1(x):  
+     print('Auswahl: ' + str(x)) 
+ # interact erzeugt Dropdown-Widget 
+ interact(myfunc1, x = [1, 2, 3]); 
+```
+
+```{python}
+#| tags: []
+ # myfunc2 gibt den eingegebenen Text aus 
+ def myfunc2(x):  
+     print('Ihre Eingabe: ' + str(x)) 
+ interact(myfunc2, x = 'Text eingeben'); 
+```
+
+```{python}
+#| tags: []
+ import matplotlib.pyplot as plt 
+ from numpy import arange,sin,pi 
+ # Definiere myplot-Funktion  
+ def myplot(xmax): 
+     x = arange(0, xmax, 0.01);y = sin(2*pi*x); 
+     plt.plot(x,y); 
+ # Erstelle ein Widget für den Plot mit Hilfe von interact 
+ interact(myplot, xmax = (pi/2,4*pi)); 
+```
+
+```{python}
+#| tags: []
+import pandas as pd
+def display_dataframe(df, rows=6, cols=6):
+    with pd.option_context('display.max_rows', rows, 
+                    'display.max_columns', cols):  
+        display(df)
+def select_data(spalten): 
+    df2 = df.loc[:,spalten];  
+    ax = df2.plot(); 
+    ax.set_ylabel('Tägl. Verbrauch (GWh)'); 
+```
+
+```{python}
+#| tags: []
+out1, out2 = widgets.Output(), widgets.Output()
+with out1:
+    file = 'opsd_2018.csv'
+    df = pd.read_csv(file, header=0, sep = ",", index_col=0, parse_dates=True) 
+    display_dataframe(df)
+with out2: 
+    ui_spalten = widgets.Dropdown(description='Auswahl:', 
+                                  options=df.columns[0:], value='Verbrauch', 
+                                  layout=Layout(width='auto'))
+    out = widgets.interactive_output(select_data, {'spalten': ui_spalten}); 
+    display(widgets.VBox([ui_spalten, out]))
+    
+tab = widgets.Tab(children = [out1, out2], layout=Layout(width='70%'))
+tab.set_title(0, 'Daten')
+tab.set_title(1, 'Grafik')
+display(tab)
+```
+
+```{python}
+#| tags: []
+def myplot(xmax):
+     x = arange(0, xmax, 0.01)
+     y = sin(2*pi*x)
+     plt.plot(x,y)
+ui_xmax = widgets.FloatSlider(description='xmax', value=10, min=pi/2, max=2*pi);
+out = widgets.interactive_output(myplot, {'xmax': ui_xmax}); 
+display(VBox([ui_xmax,out], layout=Layout(width='50%',border='1px dotted blue')))
+```
+
+```{python}
+#| tags: []
+import pandas as pd
+import ipywidgets as widgets
+def display_dataframe(df, rows=6, cols=6):
+  with pd.option_context('display.max_rows', rows, 
+                         'display.max_columns', cols):  
+                         display(df)
+def select_data(spalten): 
+    df2 = df.loc[:,spalten];  
+    ax = df2.plot(); 
+    ax.set_ylabel('Tägl. Verbrauch (GWh)'); 
+```
+
+```{python}
+#| tags: []
+from ipywidgets import Output, Layout, Dropdown, Tab, VBox
+from ipywidgets import interactive_output
+out1, out2 = Output(), Output()
+with out1:
+  file = 'https://elab2go.de/demo-py5/opsd_2018.csv'
+  df = pd.read_csv(file, header=0, sep = ",", 
+                   index_col=0, parse_dates=True) 
+  display_dataframe(df)
+with out2: 
+  ui_spalten = Dropdown(description='Auswahl:', 
+                        options=df.columns[0:], value='Verbrauch', 
+                        layout=Layout(width='auto'))
+  out = interactive_output(select_data, {'spalten': ui_spalten}); 
+  display(VBox([ui_spalten, out]))
+    
+tab = Tab(children = [out1, out2], 
+          layout=Layout(width='70%'))
+tab.set_title(0, 'Daten')
+tab.set_title(1, 'Grafik')
+display(tab)
+```
+
+```{python}
+#| tags: []
+from ipyleaflet import Map, basemaps, basemap_to_tiles
+
+lat = 48
+long = 350
+
+print("title=", f"World Map at {lat}, {long}")
+
+Map(basemap=basemap_to_tiles(basemaps.OpenStreetMap.Mapnik),
+    center=(lat, long), zoom=2)
+```
+
