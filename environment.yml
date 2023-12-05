@@ -260,6 +260,6 @@ dependencies:
   - ypy-websocket=0.8.2=py39h06a4308_0
   - zeromq=4.3.4=h2531618_0
   - zipp=3.11.0=py39h06a4308_0
-  - zlib=1.2.13=h5eee18b_0
+  - zlib
   - zstandard=0.19.0=py39h5eee18b_0
   - zstd=1.5.5=hc292b87_0
