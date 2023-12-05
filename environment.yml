@@ -3,7 +3,7 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - _libgcc_mutex=0.1=main
+  - _libgcc_mutex=main
   - _openmp_mutex=5.1=1_gnu
   - aiofiles=22.1.0=py39h06a4308_0
   - aiosqlite=0.18.0=py39h06a4308_0
@@ -160,7 +160,7 @@ dependencies:
   - notebook
   - notebook-shim=0.2.2=py39h06a4308_0
   - nspr=4.35=h6a678d5_0
-  - nss=3.89.1=h6a678d5_0
+  - nss
   - numexpr=2.8.4=py39hc78ab66_1
   - numpy=1.25.0=py39h5f9d8c6_0
   - numpy-base=1.25.0=py39hb5e798b_0
