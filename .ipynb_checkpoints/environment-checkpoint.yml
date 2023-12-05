@@ -115,18 +115,18 @@ dependencies:
   - libgcc
   - libgcc-ng
   - libgd=2.3.3=h6a678d5_2
-  - libgomp=11.2.0=h1234567_1
+  - libgomp
   - libiconv=1.16=h7f8727e_2
-  - libmamba=1.4.1=h2dafd23_1
+  - libmamba
   - libmambapy=1.4.1=py39h2dafd23_1
   - libnghttp2=1.52.0=h2d74bed_1
   - libpng=1.6.39=h5eee18b_0
   - libpq=12.15=hdbd6064_1
   - librsvg=2.54.4=h36cc946_3
   - libsodium=1.0.18=h7b6447c_0
-  - libsolv=0.7.22=he621ea3_0
+  - libsolv
   - libssh2=1.10.0=hdbd6064_2
-  - libstdcxx-ng=11.2.0=h1234567_1
+  - libstdcxx-ng
   - libtiff=4.5.0=h6a678d5_2
   - libtool=2.4.6=h6a678d5_1009
   - libuuid=1.41.5=h5eee18b_0
