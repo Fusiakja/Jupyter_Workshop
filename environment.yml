@@ -114,11 +114,11 @@ dependencies:
   - libffi=3.4.4=h6a678d5_0
   - libgcc
   - libgcc-ng
-  - libgd=2.3.3=h6a678d5_2
+  - libgd
   - libgomp
-  - libiconv=1.16=h7f8727e_2
+  - libiconv
   - libmamba
-  - libmambapy=1.4.1=py39h2dafd23_1
+  - libmambapy
   - libnghttp2=1.52.0=h2d74bed_1
   - libpng=1.6.39=h5eee18b_0
   - libpq=12.15=hdbd6064_1
