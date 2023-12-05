@@ -14,7 +14,7 @@ dependencies:
   - asttokens=2.0.5=pyhd3eb1b0_0
   - async_generator=1.10=pyhd3eb1b0_0
   - atk-1.0=2.36.0=ha1a6a79_0
-  - attrs=22.1.0=py39h06a4308_0
+  - attrs
   - babel=2.11.0=py39h06a4308_0
   - backcall=0.2.0=pyhd3eb1b0_0
   - bash=5.0.018=h14c3975_0
@@ -86,7 +86,7 @@ dependencies:
   - jsonpatch=1.32=pyhd3eb1b0_0
   - jsonpointer=2.1=pyhd3eb1b0_0
   - jsonschema=4.17.3=py39h06a4308_0
-  - jupyter_client=8.1.0=py39h06a4308_0
+  - jupyter_client
   - jupyter_core=5.3.0=py39h06a4308_0
   - jupyter_events=0.6.3=py39h06a4308_0
   - jupyter_server=2.5.0=py39h06a4308_0
@@ -149,6 +149,7 @@ dependencies:
   - mkl_random=1.2.2=py39h417a72b_1
   - nbclassic=0.5.5=py39h06a4308_0
   - nbclient=0.5.13=py39h06a4308_0
+  - nbconvert
   - nbformat=5.7.0=py39h06a4308_0
   - ncurses=6.4=h6a678d5_0
   - nest-asyncio=1.5.6=py39h06a4308_0
@@ -156,7 +157,7 @@ dependencies:
   - ninja=1.10.2=h06a4308_5
   - ninja-base=1.10.2=hd09550d_5
   - nodejs=6.11.2=h3db8ef7_0
-  - notebook=6.5.4=py39h06a4308_0
+  - notebook
   - notebook-shim=0.2.2=py39h06a4308_0
   - nspr=4.35=h6a678d5_0
   - nss=3.89.1=h6a678d5_0
